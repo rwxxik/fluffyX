@@ -34,7 +34,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>ShareMedia-$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-				<string>im.fluffyx</string>
+				<string>ru.rwxxik.fluffyx</string>
 				<string>matrix</string>
 			</array>
 		</dict>
