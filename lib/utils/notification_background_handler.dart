@@ -3,9 +3,9 @@ import 'dart:isolate';
 import 'dart:ui';
 
 import 'package:collection/collection.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/client_manager.dart';
-import 'package:fluffychat/utils/push_helper.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/client_manager.dart';
+import 'package:fluffyx/utils/push_helper.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_vodozemac/flutter_vodozemac.dart' as vod;
 import 'package:go_router/go_router.dart';
@@ -109,7 +109,7 @@ Future<void> notificationTap(
     'Notification action handler started',
     notificationResponse.notificationResponseType.name,
   );
-  final payload = FluffyChatPushPayload.fromString(
+  final payload = FluffyXPushPayload.fromString(
     notificationResponse.payload ?? '',
   );
   switch (notificationResponse.notificationResponseType) {
@@ -135,7 +135,7 @@ Future<void> notificationTap(
             : '/rooms/$roomId',
       );
     case NotificationResponseType.selectedNotificationAction:
-      final actionType = FluffyChatNotificationActions.values.singleWhereOrNull(
+      final actionType = FluffyXNotificationActions.values.singleWhereOrNull(
         (action) => action.name == notificationResponse.actionId,
       );
       if (actionType == null) {
@@ -155,13 +155,13 @@ Future<void> notificationTap(
         );
       }
       switch (actionType) {
-        case FluffyChatNotificationActions.markAsRead:
+        case FluffyXNotificationActions.markAsRead:
           await room.setReadMarker(
             payload.eventId ?? room.lastEvent!.eventId,
             mRead: payload.eventId ?? room.lastEvent!.eventId,
             public: AppSettings.sendPublicReadReceipts.value,
           );
-        case FluffyChatNotificationActions.reply:
+        case FluffyXNotificationActions.reply:
           final input = notificationResponse.input;
           if (input == null || input.isEmpty) {
             throw Exception(
@@ -174,10 +174,10 @@ Future<void> notificationTap(
             parseCommands: false,
             displayPendingEvent: false,
           );
-        case FluffyChatNotificationActions.mute:
+        case FluffyXNotificationActions.mute:
           await room.setPushRuleState(PushRuleState.mentionsOnly);
       }
   }
 }
 
-enum FluffyChatNotificationActions { markAsRead, reply, mute }
+enum FluffyXNotificationActions { markAsRead, reply, mute }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 git apply ./scripts/enable-android-google-services.patch
-FLUFFYCHAT_ORIG_GROUP="im.fluffychat"
+FLUFFYCHAT_ORIG_GROUP="ru.rwxxik.fluffyx"
 FLUFFYCHAT_ORIG_TEAM="4NXF6Z997G"
 #FLUFFYCHAT_NEW_GROUP="com.example.fluffychat"
 #FLUFFYCHAT_NEW_TEAM="ABCDE12345"
@@ -16,7 +16,7 @@ FLUFFYCHAT_ORIG_TEAM="4NXF6Z997G"
 ### Rotate IDs ###
 [ -n "${FLUFFYCHAT_NEW_GROUP}" ] && {
 	# App group IDs
-	sed -i "" "s/group.${FLUFFYCHAT_ORIG_GROUP}.app/group.${FLUFFYCHAT_NEW_GROUP}.app/g" "ios/FluffyChat Share/FluffyChat Share.entitlements"
+	sed -i "" "s/group.${FLUFFYCHAT_ORIG_GROUP}.app/group.${FLUFFYCHAT_NEW_GROUP}.app/g" "ios/FluffyX Share/FluffyX Share.entitlements"
 	sed -i "" "s/group.${FLUFFYCHAT_ORIG_GROUP}.app/group.${FLUFFYCHAT_NEW_GROUP}.app/g" "ios/Runner/Runner.entitlements"
 	sed -i "" "s/group.${FLUFFYCHAT_ORIG_GROUP}.app/group.${FLUFFYCHAT_NEW_GROUP}.app/g" "ios/Runner.xcodeproj/project.pbxproj"
 	# Bundle identifiers
@@ -73,6 +73,6 @@ flutter build ipa --release
   echo '{"compileBitcode":false,"method":"development"}' | plutil -convert xml1 -o "${TMPDIR}/options.plist" -
   xcodebuild -exportArchive -archivePath ./build/ios/archive/Runner.xcarchive -exportPath "${TMPDIR}" -exportOptionsPlist "${TMPDIR}/options.plist"
   # 2. ...and install it on your connected devices
-  cfgutil --foreach install-app "${TMPDIR}/fluffychat.ipa"
+  cfgutil --foreach install-app "${TMPDIR}/fluffyx.ipa"
   rm -rf "${TMPDIR}"
 }

@@ -1,4 +1,4 @@
-import 'package:fluffychat/l10n/l10n.dart';
+import 'package:fluffyx/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 extension PushRuleExtension on PushRule {

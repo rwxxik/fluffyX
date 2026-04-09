@@ -1,5 +1,5 @@
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
@@ -40,7 +40,7 @@ abstract class FluffyShare {
     await FluffyShare.share(
       L10n.of(context).inviteText(
         ownProfile.displayName ?? client.userID!,
-        'https://matrix.to/#/${client.userID}?client=im.fluffychat',
+        'https://matrix.to/#/${client.userID}?client=ru.rwxxik.fluffyx',
       ),
       context,
     );

@@ -1,9 +1,9 @@
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/pages/chat_encryption_settings/chat_encryption_settings.dart';
-import 'package:fluffychat/utils/beautify_string_extension.dart';
-import 'package:fluffychat/widgets/avatar.dart';
-import 'package:fluffychat/widgets/layouts/max_width_body.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/chat_encryption_settings/chat_encryption_settings.dart';
+import 'package:fluffyx/utils/beautify_string_extension.dart';
+import 'package:fluffyx/widgets/avatar.dart';
+import 'package:fluffyx/widgets/layouts/max_width_body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

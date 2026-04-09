@@ -2,10 +2,10 @@ import 'dart:isolate';
 import 'dart:ui';
 
 import 'package:collection/collection.dart';
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/utils/client_manager.dart';
-import 'package:fluffychat/utils/notification_background_handler.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/utils/client_manager.dart';
+import 'package:fluffyx/utils/notification_background_handler.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -16,7 +16,7 @@ import 'package:universal_html/universal_html.dart' as web;
 
 import 'config/setting_keys.dart';
 import 'utils/background_push.dart';
-import 'widgets/fluffy_chat_app.dart';
+import 'widgets/fluffyx_app.dart';
 
 ReceivePort? mainIsolateReceivePort;
 
@@ -105,7 +105,7 @@ Future<void> startGui(List<Client> clients, SharedPreferences store) async {
   await firstClient?.roomsLoading;
   await firstClient?.accountDataLoading;
 
-  runApp(FluffyChatApp(clients: clients, pincode: pin, store: store));
+  runApp(FluffyXApp(clients: clients, pincode: pin, store: store));
 }
 
 /// Watches the lifecycle changes to start the application when it

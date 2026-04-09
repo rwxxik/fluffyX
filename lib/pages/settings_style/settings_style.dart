@@ -1,9 +1,9 @@
 import 'package:file_picker/file_picker.dart';
-import 'package:fluffychat/config/setting_keys.dart';
-import 'package:fluffychat/utils/account_config.dart';
-import 'package:fluffychat/utils/file_selector.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
-import 'package:fluffychat/widgets/theme_builder.dart';
+import 'package:fluffyx/config/setting_keys.dart';
+import 'package:fluffyx/utils/account_config.dart';
+import 'package:fluffyx/utils/file_selector.dart';
+import 'package:fluffyx/widgets/future_loading_dialog.dart';
+import 'package:fluffyx/widgets/theme_builder.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/matrix.dart';

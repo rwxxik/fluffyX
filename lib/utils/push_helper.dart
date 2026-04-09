@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'dart:ui';
 
 import 'package:collection/collection.dart';
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/config/setting_keys.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/client_download_content_extension.dart';
-import 'package:fluffychat/utils/client_manager.dart';
-import 'package:fluffychat/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:fluffychat/utils/notification_background_handler.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/config/setting_keys.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/client_download_content_extension.dart';
+import 'package:fluffyx/utils/client_manager.dart';
+import 'package:fluffyx/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:fluffyx/utils/notification_background_handler.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -257,7 +257,7 @@ Future<void> _tryPushHelper(
         ? null
         : <AndroidNotificationAction>[
             AndroidNotificationAction(
-              FluffyChatNotificationActions.reply.name,
+              FluffyXNotificationActions.reply.name,
               l10n.reply,
               inputs: [
                 AndroidNotificationActionInput(label: l10n.writeAMessage),
@@ -266,12 +266,12 @@ Future<void> _tryPushHelper(
               semanticAction: SemanticAction.reply,
             ),
             AndroidNotificationAction(
-              FluffyChatNotificationActions.markAsRead.name,
+              FluffyXNotificationActions.markAsRead.name,
               l10n.markAsRead,
               semanticAction: SemanticAction.markAsRead,
             ),
             AndroidNotificationAction(
-              FluffyChatNotificationActions.mute.name,
+              FluffyXNotificationActions.mute.name,
               l10n.mute,
               semanticAction: SemanticAction.mute,
             ),
@@ -294,7 +294,7 @@ Future<void> _tryPushHelper(
     title: title,
     body: body,
     notificationDetails: platformChannelSpecifics,
-    payload: FluffyChatPushPayload(
+    payload: FluffyXPushPayload(
       client.clientName,
       event.room.id,
       event.eventId,
@@ -303,17 +303,17 @@ Future<void> _tryPushHelper(
   Logs().v('Push helper has been completed!');
 }
 
-class FluffyChatPushPayload {
+class FluffyXPushPayload {
   final String? clientName, roomId, eventId;
 
-  FluffyChatPushPayload(this.clientName, this.roomId, this.eventId);
+  FluffyXPushPayload(this.clientName, this.roomId, this.eventId);
 
-  factory FluffyChatPushPayload.fromString(String payload) {
+  factory FluffyXPushPayload.fromString(String payload) {
     final parts = payload.split('|');
     if (parts.length != 3) {
-      return FluffyChatPushPayload(null, null, null);
+      return FluffyXPushPayload(null, null, null);
     }
-    return FluffyChatPushPayload(parts.first, parts[1], parts[2]);
+    return FluffyXPushPayload(parts.first, parts[1], parts[2]);
   }
 
   @override

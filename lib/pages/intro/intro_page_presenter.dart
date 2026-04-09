@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:fluffychat/config/setting_keys.dart';
-import 'package:fluffychat/pages/intro/intro_page.dart';
-import 'package:fluffychat/pages/sign_in/view_model/model/public_homeserver_data.dart';
-import 'package:fluffychat/utils/localized_exception_extension.dart';
-import 'package:fluffychat/utils/matrix_sdk_extensions/oidc_session_json_extension.dart';
-import 'package:fluffychat/utils/sign_in_flows/check_homeserver.dart';
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:fluffyx/config/setting_keys.dart';
+import 'package:fluffyx/pages/intro/intro_page.dart';
+import 'package:fluffyx/pages/sign_in/view_model/model/public_homeserver_data.dart';
+import 'package:fluffyx/utils/localized_exception_extension.dart';
+import 'package:fluffyx/utils/matrix_sdk_extensions/oidc_session_json_extension.dart';
+import 'package:fluffyx/utils/sign_in_flows/check_homeserver.dart';
+import 'package:fluffyx/widgets/matrix.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

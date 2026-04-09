@@ -1,7 +1,7 @@
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/pages/device_settings/device_settings.dart';
-import 'package:fluffychat/widgets/layouts/max_width_body.dart';
+import 'package:fluffyx/config/themes.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/device_settings/device_settings.dart';
+import 'package:fluffyx/widgets/layouts/max_width_body.dart';
 import 'package:flutter/material.dart';
 
 import 'user_device_list_item.dart';

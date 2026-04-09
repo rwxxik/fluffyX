@@ -1,1 +1,1 @@
-Chat with your friends with FluffyChat.
+FluffyX — custom Matrix messenger based on FluffyChat.

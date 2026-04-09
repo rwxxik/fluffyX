@@ -1,7 +1,7 @@
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/pages/settings_3pid/settings_3pid.dart';
-import 'package:fluffychat/widgets/layouts/max_width_body.dart';
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/settings_3pid/settings_3pid.dart';
+import 'package:fluffyx/widgets/layouts/max_width_body.dart';
+import 'package:fluffyx/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

@@ -3,16 +3,16 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/client_manager.dart';
-import 'package:fluffychat/utils/init_with_restore.dart';
-import 'package:fluffychat/utils/matrix_sdk_extensions/matrix_file_extension.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
-import 'package:fluffychat/utils/uia_request_manager.dart';
-import 'package:fluffychat/utils/voip_plugin.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:fluffychat/widgets/fluffy_chat_app.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/client_manager.dart';
+import 'package:fluffyx/utils/init_with_restore.dart';
+import 'package:fluffyx/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
+import 'package:fluffyx/utils/uia_request_manager.dart';
+import 'package:fluffyx/utils/voip_plugin.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:fluffyx/widgets/fluffyx_app.dart';
+import 'package:fluffyx/widgets/future_loading_dialog.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -164,7 +164,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
                 );
                 _registerSubs(_loginClientCandidate!.clientName);
                 _loginClientCandidate = null;
-                FluffyChatApp.router.go('/backup');
+                FluffyXApp.router.go('/backup');
               });
     if (widget.clients.isEmpty) widget.clients.add(candidate);
     return candidate;
@@ -195,7 +195,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
   }
 
   String? get activeRoomId {
-    final route = FluffyChatApp.router.routeInformationProvider.value.uri.path;
+    final route = FluffyXApp.router.routeInformationProvider.value.uri.path;
     if (!route.startsWith('/rooms/')) return null;
     return route.split('/')[2];
   }
@@ -243,14 +243,14 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
                   KeyVerificationState.done,
                   KeyVerificationState.error,
                 }.contains(request.state)) {
-              FluffyChatApp.router.pop('dialog');
+              FluffyXApp.router.pop('dialog');
             }
             hidPopup = true;
           };
           request.onUpdate = null;
           hidPopup = true;
           await KeyVerificationDialog(request: request).show(
-            FluffyChatApp.router.routerDelegate.navigatorKey.currentContext ??
+            FluffyXApp.router.routerDelegate.navigatorKey.currentContext ??
                 context,
           );
         });
@@ -266,14 +266,14 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
 
           if (loggedInWithMultipleClients) {
             ScaffoldMessenger.of(
-              FluffyChatApp.router.routerDelegate.navigatorKey.currentContext ??
+              FluffyXApp.router.routerDelegate.navigatorKey.currentContext ??
                   context,
             ).showSnackBar(
               SnackBar(content: Text(L10n.of(context).oneClientLoggedOut)),
             );
             return;
           }
-          FluffyChatApp.router.go('/');
+          FluffyXApp.router.go('/');
         });
     onUiaRequest[name] ??= c.onUiaRequest.stream.listen(uiaRequestHandler);
     if (PlatformInfos.isWeb || PlatformInfos.isLinux) {
@@ -308,7 +308,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
         onFcmError: (errorMsg, {Uri? link}) async {
           final result = await showOkCancelAlertDialog(
             context:
-                FluffyChatApp
+                FluffyXApp
                     .router
                     .routerDelegate
                     .navigatorKey
@@ -401,7 +401,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
     final exportBytes = Uint8List.fromList(const Utf8Codec().encode(export));
 
     final exportFileName =
-        'fluffychat-export-${DateFormat(DateFormat.YEAR_MONTH_DAY).format(DateTime.now())}.fluffybackup';
+        'fluffyx-export-${DateFormat(DateFormat.YEAR_MONTH_DAY).format(DateTime.now())}.fluffybackup';
 
     final file = MatrixFile(bytes: exportBytes, name: exportFileName);
     file.save(context);

@@ -1,4 +1,4 @@
-import 'package:fluffychat/config/setting_keys.dart';
+import 'package:fluffyx/config/setting_keys.dart';
 import 'package:matrix/matrix.dart';
 
 extension VisibleInGuiExtension on List<Event> {

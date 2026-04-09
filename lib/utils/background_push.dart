@@ -24,11 +24,11 @@ import 'dart:isolate';
 import 'dart:ui';
 
 //<GOOGLE_SERVICES>import 'package:fcm_shared_isolate/fcm_shared_isolate.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/main.dart';
-import 'package:fluffychat/utils/notification_background_handler.dart';
-import 'package:fluffychat/utils/push_helper.dart';
-import 'package:fluffychat/widgets/fluffy_chat_app.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/main.dart';
+import 'package:fluffyx/utils/notification_background_handler.dart';
+import 'package:fluffyx/utils/push_helper.dart';
+import 'package:fluffyx/widgets/fluffyx_app.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -78,7 +78,7 @@ class BackgroundPush {
           await notificationTap(
             NotificationResponseJson.fromJsonString(message),
             client: client,
-            router: FluffyChatApp.router,
+            router: FluffyXApp.router,
             l10n: l10n,
           );
         } catch (e, s) {
@@ -97,7 +97,7 @@ class BackgroundPush {
             await notificationTap(
               NotificationResponseJson.fromJsonString(message),
               client: client,
-              router: FluffyChatApp.router,
+              router: FluffyXApp.router,
               l10n: l10n,
             );
           } catch (e, s) {
@@ -113,7 +113,7 @@ class BackgroundPush {
         onDidReceiveNotificationResponse: (response) => notificationTap(
           response,
           client: client,
-          router: FluffyChatApp.router,
+          router: FluffyXApp.router,
           l10n: l10n,
         ),
         onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
@@ -321,7 +321,7 @@ class BackgroundPush {
         notificationTap(
           response,
           client: client,
-          router: FluffyChatApp.router,
+          router: FluffyXApp.router,
           l10n: l10n,
         );
       }

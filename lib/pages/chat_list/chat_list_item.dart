@@ -1,11 +1,11 @@
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/pages/chat_list/unread_bubble.dart';
-import 'package:fluffychat/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:fluffychat/utils/room_status_extension.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
-import 'package:fluffychat/widgets/hover_builder.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/chat_list/unread_bubble.dart';
+import 'package:fluffyx/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:fluffyx/utils/room_status_extension.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:fluffyx/widgets/future_loading_dialog.dart';
+import 'package:fluffyx/widgets/hover_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

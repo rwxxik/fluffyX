@@ -1,10 +1,10 @@
-import 'package:fluffychat/config/setting_keys.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:fluffychat/widgets/app_lock.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:fluffyx/config/setting_keys.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:fluffyx/widgets/app_lock.dart';
+import 'package:fluffyx/widgets/future_loading_dialog.dart';
+import 'package:fluffyx/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

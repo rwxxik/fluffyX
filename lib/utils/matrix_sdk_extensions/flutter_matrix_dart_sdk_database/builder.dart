@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/client_manager.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/client_manager.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
 import 'package:matrix/matrix.dart';
 import 'package:path/path.dart';
@@ -62,7 +62,7 @@ Future<MatrixSdkDatabase> _constructDatabase(String clientName) async {
   try {
     final temporaryDirectory = await getTemporaryDirectory();
     fileStorageLocation = await Directory(
-      join(temporaryDirectory.path, 'fluffychat_download_cache'),
+      join(temporaryDirectory.path, 'fluffyx_download_cache'),
     ).create(recursive: true);
   } on MissingPlatformDirectoryException catch (_) {
     Logs().w(

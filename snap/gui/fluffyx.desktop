@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=FluffyChat
+Name=FluffyX
 GenericName=Matrix Client
-Comment=Chat with your friends
-Exec=fluffychat
-Icon=${SNAP}/meta/gui/fluffychat.png
+Comment=Custom Matrix messenger based on FluffyChat
+Exec=fluffyx
+Icon=${SNAP}/meta/gui/fluffyx.png
 Terminal=false
 Type=Application
 Categories=Network;Chat;InstantMessaging;

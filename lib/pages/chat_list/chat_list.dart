@@ -2,20 +2,20 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:cross_file/cross_file.dart';
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/pages/chat_list/chat_list_view.dart';
-import 'package:fluffychat/utils/localized_exception_extension.dart';
-import 'package:fluffychat/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
-import 'package:fluffychat/utils/show_scaffold_dialog.dart';
-import 'package:fluffychat/utils/show_update_snackbar.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/show_modal_action_popup.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:fluffychat/widgets/avatar.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
-import 'package:fluffychat/widgets/share_scaffold_dialog.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/chat_list/chat_list_view.dart';
+import 'package:fluffyx/utils/localized_exception_extension.dart';
+import 'package:fluffyx/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
+import 'package:fluffyx/utils/show_scaffold_dialog.dart';
+import 'package:fluffyx/utils/show_update_snackbar.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:fluffyx/widgets/avatar.dart';
+import 'package:fluffyx/widgets/future_loading_dialog.dart';
+import 'package:fluffyx/widgets/share_scaffold_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_shortcuts_new/flutter_shortcuts_new.dart';
@@ -446,7 +446,7 @@ class ChatListController extends State<ChatList>
               onPressed: () {
                 messenger.clearMaterialBanners();
                 launchUrlString(
-                  'https://fluffychat.im/faq/#how_can_i_support_fluffychat',
+                  'https://github.com/rwxxik/fluffyX',
                 );
               },
               child: Text(

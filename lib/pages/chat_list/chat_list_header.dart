@@ -1,8 +1,8 @@
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/pages/chat_list/chat_list.dart';
-import 'package:fluffychat/pages/chat_list/client_chooser_button.dart';
-import 'package:fluffychat/utils/sync_status_localization.dart';
+import 'package:fluffyx/config/themes.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/chat_list/chat_list.dart';
+import 'package:fluffyx/pages/chat_list/client_chooser_button.dart';
+import 'package:fluffyx/utils/sync_status_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

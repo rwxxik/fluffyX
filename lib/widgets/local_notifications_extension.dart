@@ -2,13 +2,13 @@ import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
-import 'package:fluffychat/config/setting_keys.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/client_download_content_extension.dart';
-import 'package:fluffychat/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:fluffychat/utils/push_helper.dart';
-import 'package:fluffychat/widgets/fluffy_chat_app.dart';
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:fluffyx/config/setting_keys.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/client_download_content_extension.dart';
+import 'package:fluffyx/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:fluffyx/utils/push_helper.dart';
+import 'package:fluffyx/widgets/fluffyx_app.dart';
+import 'package:fluffyx/widgets/matrix.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart';
@@ -110,7 +110,7 @@ extension LocalNotificationsExtension on MatrixState {
         body: body,
         replacesId: linuxNotificationIds[roomId] ?? 0,
         appName: AppSettings.applicationName.value,
-        appIcon: 'fluffychat',
+        appIcon: 'fluffyx',
         actions: [
           NotificationAction(
             DesktopNotificationActions.openChat.name,
@@ -141,7 +141,7 @@ extension LocalNotificationsExtension on MatrixState {
           case DesktopNotificationActions.openChat:
             setActiveClient(event.room.client);
 
-            FluffyChatApp.router.go('/rooms/${event.room.id}');
+            FluffyXApp.router.go('/rooms/${event.room.id}');
             break;
         }
       });

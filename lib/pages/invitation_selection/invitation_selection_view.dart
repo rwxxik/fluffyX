@@ -1,8 +1,8 @@
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/pages/invitation_selection/invitation_selection.dart';
-import 'package:fluffychat/widgets/avatar.dart';
-import 'package:fluffychat/widgets/layouts/max_width_body.dart';
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/invitation_selection/invitation_selection.dart';
+import 'package:fluffyx/widgets/avatar.dart';
+import 'package:fluffyx/widgets/layouts/max_width_body.dart';
+import 'package:fluffyx/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

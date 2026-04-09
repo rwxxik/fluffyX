@@ -1,8 +1,8 @@
-import 'package:fluffychat/main.dart' as app;
+import 'package:fluffyx/main.dart' as app;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-extension type FluffyChatTester(WidgetTester tester) {
+extension type FluffyXTester(WidgetTester tester) {
   static int _printCounter = 1;
 
   void _print(String message) {
@@ -106,9 +106,9 @@ extension on Object {
 }
 
 extension StartTest on WidgetTester {
-  Future<FluffyChatTester> startFluffyChatTest() async {
+  Future<FluffyXTester> startFluffyChatTest() async {
     app.main();
 
-    return FluffyChatTester(this);
+    return FluffyXTester(this);
   }
 }

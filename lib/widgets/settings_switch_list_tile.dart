@@ -1,4 +1,4 @@
-import 'package:fluffychat/config/setting_keys.dart';
+import 'package:fluffyx/config/setting_keys.dart';
 import 'package:flutter/material.dart';
 
 class SettingsSwitchListTile extends StatefulWidget {
