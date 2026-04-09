@@ -213,14 +213,15 @@ class NewPrivateChatView extends StatelessWidget {
                           ),
                         ],
                       )
-                    : FutureBuilder(
+                    // FluffyX: search results with local contacts and server sections
+                    : FutureBuilder<UserSearchResults>(
                         future: searchResponse,
                         builder: (context, snapshot) {
                           final result = snapshot.data;
                           final error = snapshot.error;
                           if (error != null) {
                             return Column(
-                              mainAxisAlignment: .center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   error.toLocalizedString(context),
@@ -245,7 +246,7 @@ class NewPrivateChatView extends StatelessWidget {
                           }
                           if (result.isEmpty) {
                             return Column(
-                              mainAxisAlignment: .center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Icon(Icons.search_outlined, size: 86),
                                 Padding(
@@ -263,25 +264,37 @@ class NewPrivateChatView extends StatelessWidget {
                               ],
                             );
                           }
-                          return ListView.builder(
-                            itemCount: result.length,
-                            itemBuilder: (context, i) {
-                              final contact = result[i];
-                              final displayname =
-                                  contact.displayName ??
-                                  contact.userId.localpart ??
-                                  contact.userId;
-                              return ListTile(
-                                leading: Avatar(
-                                  name: displayname,
-                                  mxContent: contact.avatarUrl,
-                                  presenceUserId: contact.userId,
+                          return ListView(
+                            children: [
+                              if (result.localContacts.isNotEmpty) ...[
+                                _SectionHeader(
+                                  icon: Icons.contacts_outlined,
+                                  title: L10n.of(context).contacts,
+                                  theme: theme,
                                 ),
-                                title: Text(displayname),
-                                subtitle: Text(contact.userId),
-                                onTap: () => controller.openUserModal(contact),
-                              );
-                            },
+                                ...result.localContacts.map(
+                                  (contact) => _ContactTile(
+                                    contact: contact,
+                                    onTap: () =>
+                                        controller.openUserModal(contact),
+                                  ),
+                                ),
+                              ],
+                              if (result.serverResults.isNotEmpty) ...[
+                                _SectionHeader(
+                                  icon: Icons.travel_explore_outlined,
+                                  title: L10n.of(context).searchOnServer,
+                                  theme: theme,
+                                ),
+                                ...result.serverResults.map(
+                                  (contact) => _ContactTile(
+                                    contact: contact,
+                                    onTap: () =>
+                                        controller.openUserModal(contact),
+                                  ),
+                                ),
+                              ],
+                            ],
                           );
                         },
                       ),
@@ -290,6 +303,62 @@ class NewPrivateChatView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+// FluffyX: section header for search results
+class _SectionHeader extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final ThemeData theme;
+
+  const _SectionHeader({
+    required this.icon,
+    required this.title,
+    required this.theme,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+      child: Row(
+        children: [
+          Icon(icon, size: 16, color: theme.colorScheme.onSurfaceVariant),
+          const SizedBox(width: 8),
+          Text(
+            title,
+            style: theme.textTheme.labelMedium?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// FluffyX: contact list tile for search results
+class _ContactTile extends StatelessWidget {
+  final Profile contact;
+  final VoidCallback onTap;
+
+  const _ContactTile({required this.contact, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final displayname =
+        contact.displayName ?? contact.userId.localpart ?? contact.userId;
+    return ListTile(
+      leading: Avatar(
+        name: displayname,
+        mxContent: contact.avatarUrl,
+        presenceUserId: contact.userId,
+      ),
+      title: Text(displayname),
+      subtitle: Text(contact.userId),
+      onTap: onTap,
     );
   }
 }

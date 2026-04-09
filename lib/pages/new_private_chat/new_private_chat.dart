@@ -15,6 +15,19 @@ import 'package:matrix/matrix.dart';
 
 import '../../widgets/adaptive_dialogs/user_dialog.dart';
 
+// FluffyX: search results with local contacts and server results separated
+class UserSearchResults {
+  final List<Profile> localContacts;
+  final List<Profile> serverResults;
+
+  const UserSearchResults({
+    required this.localContacts,
+    required this.serverResults,
+  });
+
+  bool get isEmpty => localContacts.isEmpty && serverResults.isEmpty;
+}
+
 class NewPrivateChat extends StatefulWidget {
   final String? deeplink;
   const NewPrivateChat({super.key, required this.deeplink});
@@ -27,7 +40,8 @@ class NewPrivateChatController extends State<NewPrivateChat> {
   final TextEditingController controller = TextEditingController();
   final FocusNode textFieldFocus = FocusNode();
 
-  Future<List<Profile>>? searchResponse;
+  // FluffyX: changed from Future<List<Profile>> to Future<UserSearchResults>
+  Future<UserSearchResults>? searchResponse;
 
   Timer? _searchCoolDown;
 
@@ -43,6 +57,15 @@ class NewPrivateChatController extends State<NewPrivateChat> {
         UrlLauncher(context, deeplink).openMatrixToUrl();
       });
     }
+  }
+
+  // FluffyX: dispose controllers, focus node, and cancel search timer
+  @override
+  void dispose() {
+    _searchCoolDown?.cancel();
+    controller.dispose();
+    textFieldFocus.dispose();
+    super.dispose();
   }
 
   Future<void> searchUsers([String? input]) async {
@@ -63,19 +86,59 @@ class NewPrivateChatController extends State<NewPrivateChat> {
     });
   }
 
-  Future<List<Profile>> _searchUser(String searchTerm) async {
-    final result = await Matrix.of(
-      context,
-    ).client.searchUserDirectory(searchTerm);
-    final profiles = result.results;
+  // FluffyX: local contacts search — filter direct chats by substring
+  List<Profile> _getLocalContacts(String term) {
+    final client = Matrix.of(context).client;
+    final lowerTerm = term.toLowerCase();
+    final localProfiles = <Profile>[];
+    final seenIds = <String>{};
+
+    for (final room in client.rooms) {
+      if (!room.isDirectChat) continue;
+      final directChatMatrixID = room.directChatMatrixID;
+      if (directChatMatrixID == null) continue;
+      if (seenIds.contains(directChatMatrixID)) continue;
+
+      final displayName = room.getLocalizedDisplayname();
+      if (displayName.toLowerCase().contains(lowerTerm) ||
+          directChatMatrixID.toLowerCase().contains(lowerTerm)) {
+        seenIds.add(directChatMatrixID);
+        localProfiles.add(
+          Profile(
+            userId: directChatMatrixID,
+            displayName: displayName,
+            avatarUrl: room.avatar,
+          ),
+        );
+      }
+    }
+
+    return localProfiles;
+  }
+
+  // FluffyX: combined local + server search with deduplication
+  Future<UserSearchResults> _searchUser(String searchTerm) async {
+    final localContacts = _getLocalContacts(searchTerm);
+    final localIds = localContacts.map((p) => p.userId).toSet();
+
+    final result = await Matrix.of(context).client.searchUserDirectory(
+      searchTerm,
+      limit: 20,
+    );
+    final serverProfiles =
+        result.results.where((p) => !localIds.contains(p.userId)).toList();
 
     if (searchTerm.isValidMatrixId &&
         searchTerm.sigil == '@' &&
-        !profiles.any((profile) => profile.userId == searchTerm)) {
-      profiles.add(Profile(userId: searchTerm));
+        !localIds.contains(searchTerm) &&
+        !serverProfiles.any((profile) => profile.userId == searchTerm)) {
+      serverProfiles.add(Profile(userId: searchTerm));
     }
 
-    return profiles;
+    return UserSearchResults(
+      localContacts: localContacts,
+      serverResults: serverProfiles,
+    );
   }
 
   void inviteAction() => FluffyShare.shareInviteLink(context);
