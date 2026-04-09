@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:fluffyx/config/setting_keys.dart';
 import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/chat/events/circle_video_message.dart';
 import 'package:fluffyx/pages/chat/events/poll.dart';
 import 'package:fluffyx/pages/chat/events/video_player.dart';
 import 'package:fluffyx/pages/image_viewer/image_viewer.dart';
@@ -178,6 +179,10 @@ class MessageContent extends StatelessWidget {
               linkColor: linkColor,
             );
           case MessageTypes.Video:
+            // FluffyX: check for circle video message before regular video
+            if (CircleVideoMessage.isCircleVideoMessage(event)) {
+              return CircleVideoMessage(event, timeline: timeline);
+            }
             return EventVideoPlayer(
               event,
               textColor: textColor,
