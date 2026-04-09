@@ -5,7 +5,7 @@
 | 1 | Fork, rebrand, build setup, CI | `milestone/1-rebrand` | done | #6 | Bundle ID, app name, CI configured |
 | 2 | Circle video messages — display | `milestone/2-circle-video-display` | done | #7 | `CircleVideoMessage` widget, `im.fluffy.video_message` detection |
 | 3 | Circle video messages — record & send | `milestone/3-circle-video-record` | done | #8 | Camera recording, compression, send with custom field |
-| 4 | Improved user search | — | backlog | — | Substring search, local+server combined |
+| 4 | Improved user search | `milestone/4-user-search` | done | #9 | Substring search, local+server combined, dedup |
 | 5 | Password reset flow | — | backlog | — | Email-based "forgot password" on login screen |
 | 6 | Telegram bridge integration | — | backlog | — | **BLOCKED:** mautrix-telegram not deployed on server |
 | 7 | QR-code registration | — | backlog | — | MSC3231 `m.login.registration_token` |
