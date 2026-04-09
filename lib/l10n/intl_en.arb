@@ -2305,6 +2305,8 @@
     "leaveEmptyToClearStatus": "Leave empty to clear your status.",
     "select": "Select",
     "searchForUsers": "Search for @users...",
+    "contacts": "Contacts",
+    "searchOnServer": "Search on server",
     "pleaseEnterYourCurrentPassword": "Please enter your current password",
     "newPassword": "New password",
     "pleaseChooseAStrongPassword": "Please choose a strong password",
