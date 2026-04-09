@@ -261,6 +261,21 @@ class ChatInputRow extends StatelessWidget {
                               contentPadding: const EdgeInsets.all(0),
                             ),
                           ),
+                          // FluffyX: circle video message recording option
+                          PopupMenuItem(
+                            value: AddPopupMenuActions.circleVideo,
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundColor:
+                                    theme.colorScheme.onPrimaryContainer,
+                                foregroundColor:
+                                    theme.colorScheme.primaryContainer,
+                                child: const Icon(Icons.circle_outlined),
+                              ),
+                              title: const Text('Circle video'),
+                              contentPadding: const EdgeInsets.all(0),
+                            ),
+                          ),
                         ],
                       ),
                     ),

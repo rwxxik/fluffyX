@@ -39,6 +39,8 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../utils/account_bundles.dart';
 import '../../utils/localized_exception_extension.dart';
+import '../../utils/resize_video.dart'; // FluffyX: for circle video compression
+import 'circle_video_recording_page.dart'; // FluffyX: circle video recording
 import 'send_file_dialog.dart';
 import 'send_location_dialog.dart';
 
@@ -697,6 +699,65 @@ class ChatController extends State<ChatPageWithRoom>
     );
   }
 
+  // FluffyX: Open circle video recording page and send the recorded video
+  Future<void> openCircleVideoRecording() async {
+    // Unfocus textfield before opening camera
+    FocusScope.of(context).requestFocus(FocusNode());
+
+    final filePath = await Navigator.of(context).push<String>(
+      MaterialPageRoute(
+        builder: (_) => const CircleVideoRecordingPage(),
+      ),
+    );
+    if (filePath == null || !mounted) return;
+
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+    final xfile = XFile(filePath);
+
+    try {
+      scaffoldMessenger.showSnackBar(
+        const SnackBar(content: Text('Preparing circle video...')),
+      );
+
+      // FluffyX: Generate thumbnail BEFORE compression, because
+      // getVideoInfo(compress: true) deletes the original file.
+      final thumbnail = await xfile.getVideoThumbnail();
+      // Compress video and get info
+      final videoFile = await xfile.getVideoInfo(compress: true);
+
+      // FluffyX: await sendFileEvent with try/catch instead of fire-and-forget
+      // .catchError to avoid referencing potentially stale context.
+      try {
+        await room.sendFileEvent(
+          videoFile,
+          thumbnail: thumbnail,
+          inReplyTo: replyEvent,
+          threadRootEventId: activeThreadId,
+          extraContent: {
+            'im.fluffy.video_message': true,
+          },
+        );
+      } catch (e) {
+        scaffoldMessenger.showSnackBar(
+          SnackBar(content: Text('Failed to send circle video: $e')),
+        );
+      }
+
+      setState(() {
+        replyEvent = null;
+      });
+    } catch (e) {
+      scaffoldMessenger.showSnackBar(
+        SnackBar(content: Text('Failed to send circle video: $e')),
+      );
+    } finally {
+      // Clean up temp file
+      try {
+        await File(filePath).delete();
+      } catch (_) {}
+    }
+  }
+
   Future<void> onVoiceMessageSend(
     String path,
     int duration,
@@ -1225,6 +1286,10 @@ class ChatController extends State<ChatPageWithRoom>
       case AddPopupMenuActions.videoCamera:
         openVideoCameraAction();
         return;
+      // FluffyX: circle video message recording
+      case AddPopupMenuActions.circleVideo:
+        openCircleVideoRecording();
+        return;
       case AddPopupMenuActions.location:
         sendLocationAction();
         return;
@@ -1430,5 +1495,6 @@ enum AddPopupMenuActions {
   poll,
   photoCamera,
   videoCamera,
+  circleVideo, // FluffyX: circle video message recording
   location,
 }
