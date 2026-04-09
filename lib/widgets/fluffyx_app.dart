@@ -1,10 +1,10 @@
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/config/routes.dart';
-import 'package:fluffychat/config/setting_keys.dart';
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/widgets/app_lock.dart';
-import 'package:fluffychat/widgets/theme_builder.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/config/routes.dart';
+import 'package:fluffyx/config/setting_keys.dart';
+import 'package:fluffyx/config/themes.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/widgets/app_lock.dart';
+import 'package:fluffyx/widgets/theme_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
@@ -13,13 +13,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/custom_scroll_behaviour.dart';
 import 'matrix.dart';
 
-class FluffyChatApp extends StatelessWidget {
+class FluffyXApp extends StatelessWidget {
   final Widget? testWidget;
   final List<Client> clients;
   final String? pincode;
   final SharedPreferences store;
 
-  const FluffyChatApp({
+  const FluffyXApp({
     super.key,
     this.testWidget,
     required this.clients,

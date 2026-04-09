@@ -1,8 +1,8 @@
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/fluffy_share.dart';
-import 'package:fluffychat/utils/matrix_sdk_extensions/matrix_file_extension.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/fluffy_share.dart';
+import 'package:fluffyx/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:fluffyx/widgets/future_loading_dialog.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart';

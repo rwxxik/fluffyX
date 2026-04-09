@@ -1,5 +1,5 @@
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/l10n/l10n.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

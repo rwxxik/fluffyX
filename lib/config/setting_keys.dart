@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:async/async.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:matrix/matrix_api_lite/utils/logs.dart';
@@ -47,7 +47,7 @@ enum AppSettings<T> {
   ),
   displayChatDetailsColumn('chat.fluffy.display_chat_details_column', false),
   // AppConfig-mirrored settings
-  applicationName<String>('chat.fluffy.application_name', 'FluffyChat'),
+  applicationName<String>('chat.fluffy.application_name', 'FluffyX'),
   defaultHomeserver<String>('chat.fluffy.default_homeserver', 'matrix.org'),
   // colorSchemeSeed stored as ARGB int
   colorSchemeSeedInt<int>('chat.fluffy.color_scheme_seed', 0xFF5625BA),
@@ -56,16 +56,16 @@ enum AppSettings<T> {
   enableMatrixNativeOIDC<bool>('chat.fluffy.enable_matrix_native_oidc', false),
   presetHomeserver<String>('chat.fluffy.preset_homeserver', ''),
   welcomeText<String>('chat.fluffy.welcome_text', ''),
-  website<String>('chat.fluffy.website_url', 'https://fluffychat.im'),
+  website<String>('chat.fluffy.website_url', 'https://github.com/rwxxik/fluffyX'),
   logoUrl<String>(
     'chat.fluffy.logo_url',
-    'https://fluffychat.im/assets/favicon.png',
+    'https://github.com/rwxxik/fluffyX/raw/main/assets/logo.png',
   ),
   privacyPolicy<String>(
     'chat.fluffy.privacy_policy_url',
-    'https://fluffychat.im/en/privacy',
+    'https://github.com/rwxxik/fluffyX/wiki/privacy',
   ),
-  tos<String>('chat.fluffy.tos_url', 'https://fluffychat.im/en/tos'),
+  tos<String>('chat.fluffy.tos_url', 'https://github.com/rwxxik/fluffyX/wiki/tos'),
   sendTimelineEventTimeout<int>('chat.fluffy.send_timeline_event_timeout', 15),
   lastSeenSupportBanner<int>('chat.fluffy.last_seen_support_banner', 0),
   supportBannerOptOut<bool>('chat.fluffy.support_banner_opt_out', false);

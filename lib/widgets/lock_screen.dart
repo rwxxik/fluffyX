@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/widgets/app_lock.dart';
+import 'package:fluffyx/config/themes.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/widgets/app_lock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

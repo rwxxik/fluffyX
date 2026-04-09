@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/localized_exception_extension.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/localized_exception_extension.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
 import 'package:flutter/material.dart';
 
 /// Displays a loading dialog which reacts to the given [future]. The dialog

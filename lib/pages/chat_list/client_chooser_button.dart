@@ -1,8 +1,8 @@
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:fluffychat/widgets/avatar.dart';
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:fluffyx/config/themes.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:fluffyx/widgets/avatar.dart';
+import 'package:fluffyx/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
@@ -219,7 +219,7 @@ class ClientChooserButton extends StatelessWidget {
           break;
         case SettingsAction.support:
           launchUrlString(
-            'https://fluffychat.im/faq/#how_can_i_support_fluffychat',
+            'https://github.com/rwxxik/fluffyX',
           );
           break;
         case SettingsAction.settings:

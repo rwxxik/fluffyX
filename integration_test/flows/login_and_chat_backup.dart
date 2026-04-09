@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import '../utils/fluffy_chat_tester.dart';
+import '../utils/fluffyx_tester.dart';
 import 'auth_flows.dart';
 
 Future<void> loginAndChatBackup(WidgetTester widgetTester) => widgetTester
     .startFluffyChatTest()
     .then((tester) => tester._loginAndChatBackup());
 
-extension on FluffyChatTester {
+extension on FluffyXTester {
   Future<void> _loginAndChatBackup() async {
     await login();
 

@@ -1,15 +1,15 @@
-import 'package:fluffychat/pages/chat_list/chat_list.dart';
-import 'package:fluffychat/widgets/chat_settings_popup_menu.dart';
+import 'package:fluffyx/pages/chat_list/chat_list.dart';
+import 'package:fluffyx/widgets/chat_settings_popup_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../utils/fluffy_chat_tester.dart';
+import '../utils/fluffyx_tester.dart';
 import 'auth_flows.dart';
 
 Future<void> archiveChats(WidgetTester widgetTester) =>
     widgetTester.startFluffyChatTest().then((tester) => tester._archiveChats());
 
-extension ChatFlows on FluffyChatTester {
+extension ChatFlows on FluffyXTester {
   static const String groupChatName = 'Test Group 01';
 
   Future<void> ensureGroupChatCreated() async {

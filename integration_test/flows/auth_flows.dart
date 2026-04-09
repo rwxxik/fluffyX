@@ -1,14 +1,14 @@
-import 'package:fluffychat/pages/sign_in/view_model/model/public_homeserver_data.dart';
+import 'package:fluffyx/pages/sign_in/view_model/model/public_homeserver_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../data/environment_constants.dart';
-import '../utils/fluffy_chat_tester.dart';
+import '../utils/fluffyx_tester.dart';
 
 Future<void> finalLogout(WidgetTester widgetTester) =>
     widgetTester.startFluffyChatTest().then((tester) => tester.logout());
 
-extension AuthFlows on FluffyChatTester {
+extension AuthFlows on FluffyXTester {
   Future<void> login() async {
     await waitFor('Sign in');
     await tapOn('Sign in');

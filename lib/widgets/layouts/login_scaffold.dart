@@ -1,8 +1,8 @@
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/config/setting_keys.dart';
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
+import 'package:fluffyx/config/app_config.dart';
+import 'package:fluffyx/config/setting_keys.dart';
+import 'package:fluffyx/config/themes.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
 import 'package:flutter/material.dart';
 import 'package:particles_network/particles_network.dart';
 import 'package:url_launcher/url_launcher_string.dart';

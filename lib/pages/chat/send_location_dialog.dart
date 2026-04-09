@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/pages/chat/events/map_bubble.dart';
-import 'package:fluffychat/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/pages/chat/events/map_bubble.dart';
+import 'package:fluffyx/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
+import 'package:fluffyx/widgets/future_loading_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';

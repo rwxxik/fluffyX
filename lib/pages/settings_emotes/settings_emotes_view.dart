@@ -1,9 +1,9 @@
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
-import 'package:fluffychat/utils/url_launcher.dart';
-import 'package:fluffychat/widgets/layouts/max_width_body.dart';
-import 'package:fluffychat/widgets/mxc_image.dart';
-import 'package:fluffychat/widgets/mxc_image_viewer.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/utils/platform_infos.dart';
+import 'package:fluffyx/utils/url_launcher.dart';
+import 'package:fluffyx/widgets/layouts/max_width_body.dart';
+import 'package:fluffyx/widgets/mxc_image.dart';
+import 'package:fluffyx/widgets/mxc_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:matrix/matrix.dart';

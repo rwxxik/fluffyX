@@ -1,5 +1,5 @@
-import 'package:fluffychat/l10n/l10n.dart';
-import 'package:fluffychat/widgets/layouts/login_scaffold.dart';
+import 'package:fluffyx/l10n/l10n.dart';
+import 'package:fluffyx/widgets/layouts/login_scaffold.dart';
 import 'package:flutter/material.dart';
 
 import 'login.dart';

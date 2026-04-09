@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:fluffyx/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

@@ -1,11 +1,12 @@
-name: fluffychat
-title: FluffyChat
+name: fluffyx
+title: FluffyX
 base: core24
-version: 2.5.1
+version: 0.1.0
 license: AGPL-3.0
-summary: The cutest messenger in the Matrix network
+summary: Custom Matrix messenger based on FluffyChat
 description: |
-  FluffyChat is an open source, nonprofit and cute matrix messenger app. The app is easy to use but secure and decentralized.
+  FluffyX is a custom Matrix messenger based on FluffyChat v2.5.1 fork (AGPL-3.0).
+  Extends FluffyChat with Telegram-like UX features while maintaining full Matrix ecosystem compatibility.
 
 
   ## Features
@@ -21,25 +22,15 @@ description: |
   - Dark mode
   - Hides complexity of Matrix IDs behind simple QR codes
   - Custom emotes and stickers
-  - Video calls via sharing links to Jitsi
+  - Circle video messages
+  - Video calls
   - Spaces
   - Compatible with Element, Nheko, NeoChat and all other Matrix apps
   - End to end encryption
   - Emoji verification & cross signing
   - And much more...
 
-
-  ## FluffyChat comes with a dream
-
-  Imagine a world where everyone can choose the messenger they like and is still able to chat with all of their friends.
-
-  A world where there are no companies spying on you when you send selfies to friends and lovers.
-
-  And a world where apps are made for fluffyness and not for profit. ♥
-
-  Join the community: https://matrix.to/#/#fluffy-space:matrix.org
-  Website: http://fluffy.chat
-  Microblog: https://mastodon.art/@krille
+  Based on FluffyChat by Krille. Source: https://github.com/rwxxik/fluffyX
 
 grade: stable
 confinement: strict
@@ -76,7 +67,7 @@ parts:
       - llvm-18
     override-prime: ''
 
-  fluffychat:
+  fluffyx:
     after: [flutter-git]
     plugin: nil
     source: .
@@ -104,11 +95,11 @@ slots:
   dbus-svc:
     interface: dbus
     bus: session
-    name: chat.fluffy.fluffychat
+    name: ru.rwxxik.fluffyx
 
 apps:
-  fluffychat:
-    command: bin/fluffychat
+  fluffyx:
+    command: bin/fluffyx
     extensions: [ gnome ]
     plugs:
       - audio-playback
